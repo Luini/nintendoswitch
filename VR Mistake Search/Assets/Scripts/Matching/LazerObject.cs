@@ -8,10 +8,14 @@ public class LazerObject : Photon.MonoBehaviour
     public bool isParent = false;
     public string targetObject;
 
+    public float clearTime = 0;
+
 	// Use this for initialization
 	void Start () {
         if (!isParent) ChangeColor();
-
+        GameController gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        LazerObject lazer = GetComponent<LazerObject>();
+        if (gameController.myLazer != lazer) gameController.oppLazer = lazer;
     }
 
     void ChangeColor () {
@@ -26,11 +30,13 @@ public class LazerObject : Photon.MonoBehaviour
         {
             stream.SendNext(isParent);
             stream.SendNext(targetObject);
+            stream.SendNext(clearTime);
         }
         else
         {
             isParent = (bool)stream.ReceiveNext();
             targetObject = (string)stream.ReceiveNext();
+            clearTime = (float)stream.ReceiveNext();
         }
     }
 }
