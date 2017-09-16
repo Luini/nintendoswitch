@@ -66,7 +66,9 @@ public class MatchingManager : Photon.PunBehaviour {
         obj.transform.SetParent(Camera.main.transform, false);
         LazerObject lazer = obj.GetComponent<LazerObject>();
         lazer.isParent = isParent;
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().myLazer = lazer;
+        GameController gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController.isParet = isParent;
+        gameController.myLazer = lazer;
     }
 
     //******************************//

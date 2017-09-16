@@ -6,7 +6,7 @@ public class LazerObject : Photon.MonoBehaviour
 {
 
     public bool isParent = false;
-    public string targetObject;
+    public string targetObject = "";
 
     public float clearTime = 0;
 

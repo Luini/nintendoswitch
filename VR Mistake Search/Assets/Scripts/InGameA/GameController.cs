@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     bool answer1Flag = false;
     bool answer2Flag = false;
 
-    bool isParet = false;
+    public bool isParet = false;
     float time = 0;
 
     public GameObject clearPanel;
@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour {
         {
             if (isParet)
             {
+                Debug.Log(time);
+
                 time += Time.deltaTime;
 
                 if (myLazer.targetObject == oppLazer.targetObject)
