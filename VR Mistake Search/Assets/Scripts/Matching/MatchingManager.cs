@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon;
+using UnityEngine.SceneManagement;
 
 public class MatchingManager : Photon.PunBehaviour {
 
@@ -10,11 +11,17 @@ public class MatchingManager : Photon.PunBehaviour {
     public GameObject roomList;
     public GameObject roomListButtonPrefab;
 
-	// Use this for initialization
-	void Start () {
+    private const string SCENE_NAME = "InGame";
+
+    private bool isParent = false;
+
+    // Use this for initialization
+    void Start () {
         DontDestroyOnLoad(gameObject);
         PhotonNetwork.logLevel = PhotonLogLevel.Full; // 詳細ログ
         PhotonNetwork.ConnectUsingSettings("0.1"); // 初期設定
+
+        SceneManager.sceneLoaded += OnLoadedScene; // シーンロードのコールバッグを追加
     }
 
     void OnGUI()
@@ -31,19 +38,50 @@ public class MatchingManager : Photon.PunBehaviour {
     //ルームに入室成功
     void OnJoinedRoom()
     {
+        if(!isParent) SceneManager.LoadScene("InGameB");
+    }
+
+    // 誰かがルームに入った
+    void OnPhotonPlayerConnected()
+    {
+        if(isParent) SceneManager.LoadScene("InGameA");
+    }
+
+    private void OnLoadedScene(Scene i_scene, LoadSceneMode i_mode)
+    {
+        // シーンの遷移が完了したら自分用のオブジェクトを生成.
+        string sceneName = SCENE_NAME;
+        sceneName += isParent ? "A" : "B";
+        if (i_scene.name == sceneName)
+        {
+            MakePhotonObject();
+        }
+    }
+
+    // 共有オブジェクトの生成
+    void MakePhotonObject()
+    {
         //キャラクター作成
-        GameObject obj = PhotonNetwork.Instantiate("Prefabs/PhotonObject", Vector3.zero, Quaternion.identity, 0);
-        obj.transform.SetParent(transform, false);
+        GameObject obj = PhotonNetwork.Instantiate("Prefabs/LazerObject", Vector3.zero, Quaternion.identity, 0);
+        obj.transform.SetParent(Camera.main.transform, false);
+        if (!isParent)
+        {
+            LineRenderer line = obj.GetComponent<LineRenderer>();
+            line.startColor = Color.blue;
+            line.endColor = Color.blue;
+        }
         DontDestroyOnLoad(obj);
     }
 
+    //******************************//
+    // Roomjoin系
     public void MakeRoom()
     {
         makeOrSearch.SetActive(false);
         //部屋を自分で作って入る
         PhotonNetwork.CreateRoom(null);
+        isParent = true;
     }
-
     public void SearchRoom()
     {
         makeOrSearch.SetActive(false);
@@ -56,9 +94,9 @@ public class MatchingManager : Photon.PunBehaviour {
             button.SendMessage("SetRoomName", roomInfos[i].Name);
         }
     }
-
     public void JoinRoom(string roomName)
     {
         PhotonNetwork.JoinRoom(roomName);
     }
+    //******************************//
 }
