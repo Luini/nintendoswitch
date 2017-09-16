@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour {
 
                 if (myLazer.targetObject == oppLazer.targetObject)
                 {
+                    Debug.Log("sdffdsafsda: " + myLazer.targetObject);
                     if (myLazer.targetObject == "Answer1") answer1Flag = true;
                     if (myLazer.targetObject == "Answer2") answer2Flag = true;
                 }
@@ -44,8 +45,10 @@ public class GameController : MonoBehaviour {
                 }
             }
 
+            Debug.Log(answer1Flag + " " + answer2Flag);
+
             // クリア判定
-            if (myLazer.clearTime != 0)
+            if ((isParet && myLazer.clearTime != 0) || (!isParet && oppLazer.clearTime != 0))
             {
                 finishFlag = true;
                 clearPanel.SetActive(true);
