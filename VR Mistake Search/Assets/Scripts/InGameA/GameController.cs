@@ -54,7 +54,9 @@ public class GameController : MonoBehaviour {
             {
                 finishFlag = true;
                 clearPanel.SetActive(true);
-                clearPanel.GetComponentInChildren<Text>().text = "Clear Time : " + myLazer.clearTime + " s";
+                string clearTime = isParet ? myLazer.clearTime.ToString() : oppLazer.clearTime.ToString();
+                string srt = "Clear Time : " + clearTime + " s";
+                clearPanel.GetComponentInChildren<Text>().text = srt;
             }
         }
     }
