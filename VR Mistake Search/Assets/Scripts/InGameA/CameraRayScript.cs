@@ -16,7 +16,7 @@ public class CameraRayScript : MonoBehaviour {
 
         if (Physics.Raycast(ray,out hit))
         {
-            //あたった物の制御
+            Debug.Log(hit.collider.gameObject.name);
         }
 	}
 }
