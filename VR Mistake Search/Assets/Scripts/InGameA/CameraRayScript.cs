@@ -14,7 +14,7 @@ public class CameraRayScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Ray ray = new Ray(cam.transform.position,cam.transform.forward);
-        Debug.DrawRay(ray.origin,ray.direction * 100);
+        Debug.DrawRay(ray.origin,ray.direction * 500);
 
         if (Physics.Raycast(ray,out hit))
         {
