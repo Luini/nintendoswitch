@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isParent: 0
   targetObject: 
+  clearTime: 0
 --- !u!120 &120781968313555942
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +96,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c7cf1bb431b424a468eb880c591a6177, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,7 +120,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 100}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
