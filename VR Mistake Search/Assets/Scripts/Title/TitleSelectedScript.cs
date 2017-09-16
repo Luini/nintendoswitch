@@ -7,6 +7,6 @@ public class TitleSelectedScript : MonoBehaviour, SelectedUI
 {
     public void Selected()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Matching");
     }
 }
