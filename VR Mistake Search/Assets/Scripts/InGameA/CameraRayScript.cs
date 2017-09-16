@@ -13,5 +13,10 @@ public class CameraRayScript : MonoBehaviour {
 	void Update () {
         Ray ray = new Ray(cam.transform.position,cam.transform.forward);
         Debug.DrawRay(ray.origin,ray.direction * 100);
+
+        if (Physics.Raycast(ray,out hit))
+        {
+            //あたった物の制御
+        }
 	}
 }
