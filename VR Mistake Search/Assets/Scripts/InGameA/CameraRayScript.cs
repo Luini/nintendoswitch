@@ -14,24 +14,17 @@ public class CameraRayScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Ray ray = new Ray(cam.transform.position,cam.transform.forward);
-        Debug.DrawRay(ray.origin,ray.direction * 500);
+        Debug.DrawRay(ray.origin,ray.direction * 100);
 
         if (Physics.Raycast(ray,out hit))
         {
             Debug.Log(hit.collider.gameObject.name);
             selectorScript.addTime(Time.deltaTime);
-            //もし選択されるようになれば
-            if (selectorScript.IsSelected)
-            {
-               hit.collider.gameObject.GetComponent<SelectedUI>().Selected();
-            }
-
+            
         }
         else
         {
             selectorScript.ResetTime();
         }
-
-      
 	}
 }

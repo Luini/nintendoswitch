@@ -64,13 +64,7 @@ public class MatchingManager : Photon.PunBehaviour {
         //キャラクター作成
         GameObject obj = PhotonNetwork.Instantiate("Prefabs/LazerObject", Vector3.zero, Quaternion.identity, 0);
         obj.transform.SetParent(Camera.main.transform, false);
-        if (!isParent)
-        {
-            LineRenderer line = obj.GetComponent<LineRenderer>();
-            line.startColor = Color.blue;
-            line.endColor = Color.blue;
-        }
-        DontDestroyOnLoad(obj);
+        obj.GetComponent<LazerObject>().isParent = isParent;
     }
 
     //******************************//
