@@ -72,3 +72,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Matching.unity
     guid: 9ac40d15ea530c342978909674d9b991
+  - enabled: 1
+    path: Assets/Scenes/InGameA.unity
+    guid: 4d580d0b7e2bfbb44bfd1242a0139aec
+  - enabled: 1
+    path: Assets/Scenes/InGameB.unity
+    guid: 6adea819c256fe24fa64a4114208db61
