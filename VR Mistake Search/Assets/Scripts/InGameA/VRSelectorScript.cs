@@ -21,7 +21,7 @@ public class VRSelectorScript : MonoBehaviour {
 
     public bool IsSelected
     {
-        get { return IsSelected; }
+        get { return isSelected; }
         private set { isSelected = value; text.SetActive(value); }
     }
 
