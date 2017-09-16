@@ -9,6 +9,8 @@ public class CameraRayScript : MonoBehaviour {
     // Use this for initialization
 
     private RaycastHit hit;
+    
+    public VRSelectorScript selectorScript;
 	// Update is called once per frame
 	void Update () {
         Ray ray = new Ray(cam.transform.position,cam.transform.forward);
@@ -17,6 +19,12 @@ public class CameraRayScript : MonoBehaviour {
         if (Physics.Raycast(ray,out hit))
         {
             Debug.Log(hit.collider.gameObject.name);
+            selectorScript.addTime(Time.deltaTime);
+            
+        }
+        else
+        {
+            selectorScript.ResetTime();
         }
 	}
 }

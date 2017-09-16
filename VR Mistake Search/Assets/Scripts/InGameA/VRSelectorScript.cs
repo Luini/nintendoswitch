@@ -8,12 +8,12 @@ public class VRSelectorScript : MonoBehaviour {
     /// <summary>
     /// 決定を促すためのセレクトUI
     /// </summary>
-    Image SelectedImage;
+    public Image SelectedImage;
 
     /// <summary>
     /// 決定された時のUI
     /// </summary>
-    GameObject text;
+    public GameObject text;
     /// <summary>
     /// 念のため用意した選ばれているかのbool
     /// </summary>
