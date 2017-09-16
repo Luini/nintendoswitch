@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4020964275347086}
   - component: {fileID: 120781968313555942}
+  - component: {fileID: 114873882274284492}
   - component: {fileID: 114476602130935432}
   m_Layer: 0
   m_Name: LazerObject
@@ -62,11 +63,25 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 4020964275347086}
+  - {fileID: 114873882274284492}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114873882274284492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555655259237014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dace5029701c4b54e91c1e36c6015f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isParent: 0
+  targetObject: 
 --- !u!120 &120781968313555942
 LineRenderer:
   m_ObjectHideFlags: 1
