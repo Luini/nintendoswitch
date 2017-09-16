@@ -20,11 +20,18 @@ public class CameraRayScript : MonoBehaviour {
         {
             Debug.Log(hit.collider.gameObject.name);
             selectorScript.addTime(Time.deltaTime);
-            
+            //もし選択されるようになれば
+            if (selectorScript.IsSelected)
+            {
+               hit.collider.gameObject.GetComponent<SelectedUI>().Selected();
+            }
+
         }
         else
         {
             selectorScript.ResetTime();
         }
+
+      
 	}
 }

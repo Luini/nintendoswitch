@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 2054674259}
   - component: {fileID: 2054674260}
   - component: {fileID: 2054674261}
+  - component: {fileID: 2054674262}
   m_Layer: 0
   m_Name: StartSprite
   m_TagString: Untagged
@@ -497,3 +498,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 109.666664, y: 86, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2054674262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054674258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfca0273543ca8f48abbd4d1ded04e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
